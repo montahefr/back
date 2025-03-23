@@ -4,7 +4,7 @@ exports.register=async (req,res,next)=>{
     try{
         const{username,email,password}=req.body;
         const successRes=await UserService.registerUser(username,email,password);
-        res.json({status:true,success:"User Registered Successfully"})
+        res.json({status:true,success:"User Registered Successfully"});
 
     }catch(error){
         throw error
@@ -18,12 +18,12 @@ exports.login=async (req,res,next)=>{
         const user = await UserService.checkuser(email);
         console.log("--------------user--------------",user); 
         if(!user){
-            throw new Error('User does not exist :(');
+            throw new Error('User does not exist');
         }
 
         const isMatch = await user.comparePassword(password);
         if(isMatch === false){
-            throw new Error ('Password InValid')
+            throw new Error ('Password InValid');
         }
 
         let tokenData ={_id:user._id,email:user.email};
