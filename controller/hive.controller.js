@@ -22,3 +22,15 @@ exports.getUserHive = async (req, res, next) => {
         next(error);
     }
 };
+exports.deleteHive = async (req, res, next) => {
+    try {
+        const { id } = req.body;
+        
+
+        let deleted = await HiVeServices.deleteHive(id);
+        
+        res.json({ status: true, success: deleted });
+    } catch (error) {
+        next(error);
+    }
+};

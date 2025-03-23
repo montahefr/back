@@ -11,6 +11,12 @@ class HiVeServices{
         console.log("Database query result:", hiveData); // Debugging
         return hiveData;
     }
+    static async deleteHive(id){
+        
+        const deleted = await HiVeModel.findOneAndDelete({_id:id});
+        
+        return deleted;
+    }
 
 
 }
