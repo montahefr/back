@@ -5,7 +5,7 @@ const HiveModel =require('./model/hive.model')
 const port =5000;
 
 app.get('/',(req,res)=>{
-    res.send("Hello World!!")
+    res.send("ruche")
 });
 
 app.listen(port,()=>{
